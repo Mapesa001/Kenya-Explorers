@@ -1,3 +1,16 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+
+@theme {
+    --color-primary: #10b981; /* Emerald */
+    --color-primary-dark: #059669; /* Dark Emerald */
+
+    --color-footer-bg: #2e0d0d;
+    --color-footer-text: #ffffffcc;
+    --color-footer-highlight: #ffb300;
+
+    /* Dark mode colors*/
+    --color-footer-bg: #1a1a1a;
+    --color-footer-text: #cccccc;
+    --color-footer-highlight: #facc15;
+  }
