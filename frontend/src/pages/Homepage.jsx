@@ -46,7 +46,7 @@ export default function Homepage() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-white dark:bg-black text-gray-800 dark:text-gray-100">
+    <div className="relative min-h-screen mt-14 bg-white dark:bg-black text-gray-800 dark:text-gray-100">
       {/* Hero Section */}
       <section
         ref={heroRef}
@@ -59,16 +59,31 @@ export default function Homepage() {
             <img
                 src="/images/ground.png"
                 alt="Hero Background"
-                className="w-full mt-100 size-[240px] absolute object-contain"
+                className="w-full mt-100 size-[240px] absolute object-cover"
             />
             <img
-                src="/images/mti1.png"
+                src="/images/sun.png"
                 alt="Hero Background"
-                className="w-full size-[400px] mt-20 absolute object-contain"
+                className="w-full size-[200px] mt-30 right-[250px] absolute object-contain"
+            />
+            <img
+                src="/images/mti2.png"
+                alt="Hero Background"
+                className="w-full size-[400px] mt-20 right-[450px] absolute object-contain"
+            />
+            <img
+                src="/images/mti2.png"
+                alt="Hero Background"
+                className="w-full size-[280px] mt-50 right-[550px] absolute object-contain"
+            />
+            <img
+                src="/images/giraffe.png"
+                alt="Hero Background"
+                className="w-full size-[280px] mt-50 right-[150px] absolute object-contain"
             />
         </div>
 
-        <div className="text-center z-10 px-6 max-w-3xl">
+        <div className="text-center w-1/2 z-10 px-6 ml-64 max-w-3xl">
           <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-4">
             Wild Nature Adventures
           </h1>

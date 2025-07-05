@@ -11,7 +11,7 @@ export default function Navbar() {
         
         {/* Logo Section */}
         <div className="text-xl font-bold text-primary">
-          <a href="#">MyBrand</a>
+          <Link to={'/'}>Logo</Link>
         </div>
 
         {/* Hamburger Menu for Mobile */}
