@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: [true, "Password is required"],
       minlength: [8, "Password must be at least 8 characters"],
-      select: false, // don't return password by default
+      select: false,
     },
     phone: {
       type: String,
@@ -34,7 +34,7 @@ const userSchema = new mongoose.Schema(
     },
     profilePicture: {
       type: String,
-      default: "", // could store a URL to an uploaded profile pic
+      default: "",
     },
   },
   { timestamps: true }
