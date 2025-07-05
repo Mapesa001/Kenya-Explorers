@@ -92,7 +92,7 @@ export default function Homepage() {
           </p>
           <a
             href="#explore"
-            className="inline-block bg-[var(--footer-highlight)] text-black font-semibold py-3 px-6 rounded-md hover:bg-yellow-500 transition"
+            className="inline-block bg-secondary text-white font-semibold py-3 px-6 rounded-full hover:bg-yellow-500 transition"
           >
             Explore Now
           </a>
@@ -103,7 +103,7 @@ export default function Homepage() {
       <section id="explore" ref={contentRef} className="py-20 px-6 md:px-20 bg-gray-100 dark:bg-gray-900">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl font-bold mb-4">Why Choose Us?</h2>
+            <h2 className="text-3xl font-bold mb-4 text-secondary">Why Choose Us?</h2>
             <p className="text-gray-700 dark:text-gray-300 mb-4">
               We offer curated wildlife tours across Africa, led by expert guides, with comfort and authenticity in mind.
               Whether you’re after thrilling safaris, quiet nature walks, or cultural encounters — we’ve got you covered.
@@ -116,7 +116,7 @@ export default function Homepage() {
             </ul>
           </div>
           <img
-            src="/images/safari-jeep.jpg"
+            src="https://images.unsplash.com/photo-1542085215-673021bf5caa?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Safari Jeep"
             className="rounded-lg shadow-md"
           />

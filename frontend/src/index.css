@@ -3,6 +3,7 @@
 
 @theme {
     --color-primary: #c56900; /* Primary Orange */
+    --color-secondary: #3f0023; /* Primary Orange */
     --color-primary-dark: #603101; /* Dark Emerald */
 
     --color-footer-bg: #2e0d0d;

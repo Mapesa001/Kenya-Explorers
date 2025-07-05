@@ -7,7 +7,7 @@ export default function Footer() {
         
         {/* Logo & About */}
         <div>
-          <h2 className="text-xl font-bold text-footer-highlight mb-3">Wild Nature</h2>
+          <h2 className="text-xl font-bold text-primary mb-3">Kenya Explorers</h2>
           <p>
             Explore the heart of Africa. Discover wildlife, natural beauty, and adventure like never before.
           </p>
@@ -15,7 +15,7 @@ export default function Footer() {
 
         {/* Navigation Links */}
         <div>
-          <h3 className="text-md font-semibold mb-3 text-footer-highlight">Quick Links</h3>
+          <h3 className="text-md font-semibold mb-3 text-primary">Quick Links</h3>
           <ul className="space-y-2">
             <li><a href="#" className="hover:text-white transition">Home</a></li>
             <li><a href="#" className="hover:text-white transition">Services</a></li>
@@ -26,8 +26,8 @@ export default function Footer() {
 
         {/* Contact & Socials */}
         <div>
-          <h3 className="text-md font-semibold mb-3 text-footer-highlight">Contact Us</h3>
-          <p>Email: explore@wildnature.com</p>
+          <h3 className="text-md font-semibold mb-3 text-primary">Contact Us</h3>
+          <p>Email: explore@kenyaexplorers.com</p>
           <p>Phone: +254 712 345 678</p>
           <div className="flex space-x-4 mt-4">
             <a href="#" className="hover:text-white"><FaFacebookF /></a>
@@ -40,7 +40,7 @@ export default function Footer() {
 
       {/* Divider and Copy */}
       <div className="border-t border-gray-600 mt-10 pt-4 text-center text-xs">
-        &copy; {new Date().getFullYear()} Wild Nature. All rights reserved.
+        &copy; {new Date().getFullYear()} Kenya Explorers. All rights reserved.
       </div>
     </footer>
   );
