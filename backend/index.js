@@ -28,7 +28,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/dist", "index.html"));
 });
 
-// Test route
+// Test route with test
 app.get("/test", (req, res) => {
   res.send("Kenya Explorers API running!");
 });
