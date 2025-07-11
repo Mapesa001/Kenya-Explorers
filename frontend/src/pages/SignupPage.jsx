@@ -86,7 +86,7 @@ export default function SignupPage() {
     if (Object.values(newErrors).some((error) => error)) return;
 
     try {
-      const res = await fetch("https://kenya-explorers.onrender.com/api/register", {
+      const res = await fetch("https://kenya-explorers.onrender.com/api/users/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

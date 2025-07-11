@@ -17,19 +17,13 @@ app.use(cors());
 app.use(express.json());
 
 
-// Serve static files from frontend/dist
-app.use(express.static(path.join(__dirname, "../frontend/dist")));
-
 // Routes
 const userRoutes = require("./routes/userRoutes");
 app.use("/api/users", userRoutes);
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/dist", "index.html"));
-});
 
 // Test route with test
-app.get("/test", (req, res) => {
+app.get("/", (req, res) => {
   res.send("Kenya Explorers API running!");
 });
 
