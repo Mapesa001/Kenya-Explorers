@@ -20,6 +20,10 @@ app.use(express.json());
 const userRoutes = require("./routes/userRoutes");
 app.use("/api/users", userRoutes);
 
+// ✅ Add attractionRoutes here
+const attractionRoutes = require("./routes/attractionRoutes");
+app.use("/api/attractions", attractionRoutes);
+
 // Test route
 app.get("/", (req, res) => {
   res.send("Kenya Explorers API running!");
