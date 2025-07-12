@@ -49,15 +49,15 @@ function WhyChooseUs() {
   }, []);
   return (
     <>
-    <section id="explore" className="py-20 px-6 md:px-20 bg-gray-100 dark:bg-gray-900">
+    <section id="explore" className="py-20 px-6 md:px-20 bg-gray-100 dark:bg-gray-100 overflow-x-none">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="whychooseus text-3xl font-bold mb-4 text-secondary">Why Choose Us?</h2>
-            <p className="whytxt text-gray-700 dark:text-gray-300 mb-4">
+            <p className="whytxt text-secondary mb-4">
               We offer curated wildlife tours across Africa, led by expert guides, with comfort and authenticity in mind.
               Whether you’re after thrilling safaris, quiet nature walks, or cultural encounters — we’ve got you covered.
             </p>
-            <ul className="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
+            <ul className="list-disc pl-5 space-y-2 text-secondary">
               <li>Experienced local guides</li>
               <li>Eco-friendly accommodations</li>
               <li>Flexible travel packages</li>

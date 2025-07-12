@@ -21,21 +21,17 @@ function HeroSection({ heroRef }) {
     <>
     <section
         ref={heroRef}
-        className="w-full h-screen bg-cover bg-center flex items-center justify-center relative"
-        style={{
-          backgroundImage: `url('/images/skybg.png')`,
-        }}
-      >
-        <div className="absolute inset-0 z-0">
+        className="w-full h-screen bg-cover bg-[url('/images/skybg.png')] -mb-10 bg-center flex items-center justify-center relative">
+        <div className="absolute inset-0 z-0 overflow-x-">
             <img
                 src="/images/ground.png"
                 alt="Hero Background"
-                className="ground w-full mt-100 size-[240px] absolute object-cover"
+                className="ground w-full sm:mt-100 mt-110  size-[180px] absolute object-cover"
             />
             <img
                 src="/images/sun.png"
                 alt="Hero Background"
-                className="sun w-full size-[200px] mt-30 right-[250px] absolute object-contain"
+                className="sun w-full sm:size-[200px] size-[100px] sm:mt-30 mt-50 sm:left-[250px] -left-[50px] absolute object-contain"
             />
             <img
                 src="/images/mti2.png"
@@ -45,16 +41,16 @@ function HeroSection({ heroRef }) {
             <img
                 src="/images/mti2.png"
                 alt="Hero Background"
-                className="mti2 w-full size-[280px] mt-50 right-[550px] absolute object-contain"
+                className="mti2 w-full sm:size-[280px] size-[280px] sm:mt-50 mt-55 sm:right-[550px] right-[150px] absolute object-contain"
             />
             <img
                 src="/images/giraffe.png"
                 alt="Hero Background"
-                className="giraffe w-full size-[280px] mt-50 right-[150px] absolute object-contain"
+                className="giraffe w-full sm:size-[280px] size-[210px] sm:mt-50 mt-75 sm:left-[350px] left-[50px] absolute object-contain"
             />
         </div>
 
-        <div className="text-center w-1/2 z-10 px-6 ml-64 max-w-3xl">
+        <div className="text-center sm:w-1/2 w-full z-10 px-6 mb-80 sm:mb-0 sm:ml-124 max-w-3xl">
           <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-4">
             Wild Nature Adventures
           </h1>
@@ -63,7 +59,7 @@ function HeroSection({ heroRef }) {
           </p>
           <a
             href="#explore"
-            className="inline-block bg-secondary text-white font-semibold py-3 px-6 rounded-full hover:bg-yellow-500 transition"
+            className="inline-block bg-secondary text-white font-semibold py-3 px-6 rounded-full hover:ring-2 hover:ring-yellow-500 transition"
           >
             Explore Now
           </a>
