@@ -49,15 +49,15 @@ function WhyChooseUs() {
   }, []);
   return (
     <>
-    <section id="explore" className="py-20 px-6 md:px-20 bg-gray-100 dark:bg-gray-100 overflow-x-none">
+    <section id="explore" className="py-20 px-6 md:px-20 bg-neutral-100 dark:bg-neutral-100 overflow-x-none">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="whychooseus text-3xl font-bold mb-4 text-secondary">Why Choose Us?</h2>
-            <p className="whytxt text-secondary mb-4">
+            <h2 className="whychooseus text-3xl font-bold mb-4 text-primary-900">Why Choose Us?</h2>
+            <p className="whytxt text-neutral-800 mb-4">
               We offer curated wildlife tours across Africa, led by expert guides, with comfort and authenticity in mind.
               Whether you’re after thrilling safaris, quiet nature walks, or cultural encounters — we’ve got you covered.
             </p>
-            <ul className="list-disc pl-5 space-y-2 text-secondary">
+            <ul className="list-disc pl-5 space-y-2 text-neutral-600">
               <li>Experienced local guides</li>
               <li>Eco-friendly accommodations</li>
               <li>Flexible travel packages</li>
@@ -67,7 +67,7 @@ function WhyChooseUs() {
           <img
             src="https://images.unsplash.com/photo-1542085215-673021bf5caa?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Safari Jeep"
-            className="jeepimg rounded-lg shadow-md"
+            className="jeepimg rounded-lg shadow-md shadow-secondary-300"
           />
         </div>
       </section>

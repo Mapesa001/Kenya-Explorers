@@ -3,8 +3,35 @@
 
 @theme {
     --color-primary: #c56900; /* Primary Orange */
-    --color-secondary: #3f0023; /* Primary Orange */
+    --color-primary-100: #f9ede4; /* Primary Orange */
+    --color-primary-200: #f9d0ac; /* Primary Orange */
+    --color-primary-300: #f2b279; /* Primary Orange */
+    --color-primary-400: #ef913c; /* Primary Orange */
+    --color-primary-500: #e27e1a; /* Primary Orange */
+    --color-primary-600: #c1620c; /* Primary Orange */
+    --color-primary-700: #964b08; /* Primary Orange */
+    --color-primary-800: #562a03; /* Primary Orange */
+    --color-primary-900: #190c00; /* Primary Orange */
+    --color-secondary: #3f0023; /* Secondary Orange */
+    --color-secondary-100: #f9d7ed; /* Secondary Orange */
+    --color-secondary-200: #f9a5db; /* Secondary Orange */
+    --color-secondary-300: #f46cc3; /* Secondary Orange */
+    --color-secondary-400: #e83dab; /* Secondary Orange */
+    --color-secondary-500: #dd2292; /* Secondary Orange */
+    --color-secondary-600: #c41485; /* Secondary Orange */
+    --color-secondary-700: #a00b6b; /* Secondary Orange */
+    --color-secondary-800: #77044e; /* Secondary Orange */
+    --color-secondary-900-brand: #3f0023; /* Secondary Orange */
     --color-primary-dark: #603101; /* Dark Emerald */
+    --color-neutral-100: #e2e1e0; /* Dark Emerald */
+    --color-neutral-200: #afacaa; /* Dark Emerald */
+    --color-neutral-300: #77726f; /* Dark Emerald */
+    --color-neutral-400: #544d48; /* Dark Emerald */
+    --color-neutral-500: #423a33; /* Dark Emerald */
+    --color-neutral-600: #2d251f; /* Dark Emerald */
+    --color-neutral-700: #211913; /* Dark Emerald */
+    --color-neutral-800: #110b06; /* Dark Emerald */
+    --color-neutral-900: #070401; /* Dark Emerald */
 
     --color-footer-bg: #2e0d0d;
     --color-footer-text: #ffffffcc;

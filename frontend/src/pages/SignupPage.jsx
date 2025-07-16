@@ -110,7 +110,7 @@ export default function SignupPage() {
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1677741446379-8afb81b8e9d1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fHw%3D')] bg-cover bg-center z-0" />
 
       {/* Card */}
-      <div className="relative z-10 w-full max-w-6xl bg-secondary/80 border-x-2 border-primary rounded-xl shadow-xl overflow-hidden grid md:grid-cols-2">
+      <div className="relative z-10 w-full max-w-6xl backdrop-blur-sm bg-secondary-800/50 border-x-2 border-primary rounded-xl shadow-xl overflow-hidden grid md:grid-cols-2">
         {/* Left Image Panel */}
         <div
           ref={imageRef}
@@ -129,7 +129,7 @@ export default function SignupPage() {
         <div className="p-8 sm:p-10" ref={formRef}>
           <h2
             ref={headingRef}
-            className="text-3xl font-extrabold text-primary mb-6"
+            className="text-3xl font-extrabold text-primary-500 mb-6"
           >
             Create Your Account
           </h2>
@@ -247,7 +247,7 @@ export default function SignupPage() {
             {/* Submit */}
             <button
               type="submit"
-              className="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3 rounded-md transition"
+              className="w-full bg-primary backdrop-blur-sm hover:bg-secondary-900-brand hover:ring-2 hover:ring-primary text-white font-semibold py-3 rounded-md transition"
             >
               Sign Up
             </button>

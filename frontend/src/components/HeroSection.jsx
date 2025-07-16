@@ -59,7 +59,7 @@ function HeroSection({ heroRef }) {
           </p>
           <a
             href="#explore"
-            className="inline-block bg-secondary text-white font-semibold py-3 px-6 rounded-full hover:ring-2 hover:ring-yellow-500 transition"
+            className="inline-block backdrop-blur-sm bg-secondary hover:bg-secondary/80 text-white font-semibold py-3 px-6 rounded-full hover:ring-2 hover:ring-yellow-500 transition"
           >
             Explore Now
           </a>

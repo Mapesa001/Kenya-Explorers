@@ -22,7 +22,7 @@ export default function Homepage() {
 
 
   return (
-    <div className="relative min-h-screen mt-14 bg-white dark:bg-black text-gray-800 dark:text-gray-100">
+    <div className="relative min-h-screen mt-14 bg-white dark:bg-black text-gray-800 dark:text-gray-100 overflow-hidden">
       {/* Hero Section */}
       <HeroSection />
 
