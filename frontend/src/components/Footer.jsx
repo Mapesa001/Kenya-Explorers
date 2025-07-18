@@ -2,7 +2,7 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaGlobe } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-footer-bg text-footer-text py-10 px-4 md:px-20 mt-20">
+    <footer className="bg-footer-bg text-footer-text py-10 px-4 md:px-20">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
         
         {/* Logo & About */}
