@@ -2,7 +2,7 @@ const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-//REGISTER
+// REGISTER
 exports.registerUser = async (req, res) => {
   try {
     const { fullName, email, password, phone } = req.body;
@@ -11,7 +11,7 @@ exports.registerUser = async (req, res) => {
       return res.status(400).json({ message: "All fields are required." });
     }
 
-    const existingUser = await User.findOne({ email });
+    const existingUser = await User.findOne({ email: email.toLowerCase() });
     if (existingUser) {
       return res.status(409).json({ message: "You already have an account. Please log in." });
     }
@@ -33,7 +33,7 @@ exports.registerUser = async (req, res) => {
     });
 
     const token = jwt.sign(
-      { userId: newUser._id },
+      { id: newUser._id },
       process.env.JWT_SECRET,
       { expiresIn: "7d" }
     );
@@ -64,7 +64,7 @@ exports.loginUser = async (req, res) => {
       return res.status(400).json({ message: "Both email and password are required." });
     }
 
-    const user = await User.findOne({ email }).select("+password");
+    const user = await User.findOne({ email: email.toLowerCase() }).select("+password");
     if (!user) {
       return res.status(401).json({ message: "Invalid email or password." });
     }
@@ -75,7 +75,7 @@ exports.loginUser = async (req, res) => {
     }
 
     const token = jwt.sign(
-      { userId: user._id },
+      { id: user._id },
       process.env.JWT_SECRET,
       { expiresIn: "7d" }
     );
@@ -94,5 +94,34 @@ exports.loginUser = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error. Please try again later." });
+  }
+};
+
+// GET PROFILE (authenticated)
+exports.getUserProfile = async (req, res) => {
+  try {
+    const user = req.user;
+
+    res.status(200).json({
+      id: user._id,
+      fullName: user.fullName,
+      email: user.email,
+      phone: user.phone,
+      role: user.role,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Failed to retrieve profile." });
+  }
+};
+
+// GET ALL USERS (admin only)
+exports.getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find().select("-password");
+    res.status(200).json(users);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Failed to fetch users." });
   }
 };

@@ -16,15 +16,19 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-
 // Routes
 const userRoutes = require("./routes/userRoutes");
 app.use("/api/users", userRoutes);
 
-
-// Add attractionRoutes here
 const attractionRoutes = require("./routes/attractionRoutes");
 app.use("/api/attractions", attractionRoutes);
+
+const bookingRoutes = require("./routes/bookingRoutes");
+app.use("/api/bookings", bookingRoutes);
+
+// Upload route
+const uploadRoutes = require("./routes/uploadRoutes");
+app.use("/api/upload", uploadRoutes);
 
 // Test route
 app.get("/", (req, res) => {
