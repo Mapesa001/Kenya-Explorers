@@ -1,7 +1,10 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Libertinus+Math&display=swap');
+
 
 
 @theme {
+    --font-hero: Libertinus Math, 'sans-serif';
     --color-primary: #c56900; /* Primary Orange */
     --color-primary-100: #f9ede4; /* Primary Orange */
     --color-primary-200: #f9d0ac; /* Primary Orange */

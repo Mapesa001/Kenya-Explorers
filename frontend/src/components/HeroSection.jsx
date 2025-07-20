@@ -21,17 +21,17 @@ function HeroSection({ heroRef }) {
     <>
     <section
         ref={heroRef}
-        className="w-full h-screen bg-cover bg-[url('/images/skybg.png')] -mb-10 bg-center flex items-center justify-center relative">
+        className="w-full h-screen relative bg-cover bg-[url('/images/skybg.png')] -mb-10 bg-center flex items-center justify-center relative">
         <div className="absolute inset-0 z-0 overflow-x-">
             <img
                 src="/images/ground.png"
                 alt="Hero Background"
-                className="ground w-full sm:mt-100 mt-110  size-[180px] absolute object-cover"
+                className="ground w-full sm:mt-100 mt-110  size-[180px] bottom-0 absolute object-cover"
             />
             <img
                 src="/images/sun.png"
                 alt="Hero Background"
-                className="sun w-full sm:size-[200px] size-[100px] sm:mt-30 mt-50 sm:left-[250px] -left-[50px] absolute object-contain"
+                className="sun w-full sm:size-[200px] size-[100px] sm:mt-30 mt-80 sm:left-[250px] -left-[50px] absolute object-contain"
             />
             <img
                 src="/images/mti2.png"
@@ -41,12 +41,12 @@ function HeroSection({ heroRef }) {
             <img
                 src="/images/mti2.png"
                 alt="Hero Background"
-                className="mti2 w-full sm:size-[280px] size-[280px] sm:mt-50 mt-55 sm:right-[550px] right-[150px] absolute object-contain"
+                className="mti2 w-full sm:size-[280px] size-[280px] sm:mt-50 mt-85 sm:right-[550px] right-[150px] absolute object-contain"
             />
             <img
                 src="/images/giraffe.png"
                 alt="Hero Background"
-                className="giraffe w-full sm:size-[280px] size-[210px] sm:mt-50 mt-75 sm:left-[350px] left-[50px] absolute object-contain"
+                className="giraffe w-full sm:size-[280px] size-[210px] sm:mt-50 mt-95 sm:left-[350px] left-[50px] absolute object-contain"
             />
         </div>
 
