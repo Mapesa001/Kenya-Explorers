@@ -9,11 +9,11 @@ import {
   FiCompass,
 } from "react-icons/fi";
 import { MdCategory, MdTitle, MdOutlineDescription } from "react-icons/md";
-import { counties } from "../constants/kenyaCounties";
+import { counties } from "../constants/kenyaCounties"; // Separate file for counties
 import { useDropzone } from "react-dropzone";
 
 export default function AttractionForm() {
-  const [token, setToken] = useState("");
+  const token = localStorage.getItem("token");
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -31,49 +31,50 @@ export default function AttractionForm() {
   const [successMsg, setSuccessMsg] = useState("");
   const [previewImages, setPreviewImages] = useState([]);
 
+  // Auto-detect coordinates
   useEffect(() => {
-    const storedToken = localStorage.getItem("token");
-    if (storedToken) setToken(storedToken);
-
-    // Auto-detect coordinates
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (pos) => {
-          const coords = `${pos.coords.latitude}, ${pos.coords.longitude}`;
-          setFormData((prev) => ({ ...prev, coordinates: coords }));
-        },
-        (err) => {
-          console.warn("Geolocation error:", err.message);
-        }
-      );
-    }
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const coords = `${pos.coords.latitude}, ${pos.coords.longitude}`;
+        setFormData((prev) => ({ ...prev, coordinates: coords }));
+      },
+      (err) => {
+        console.warn("Geolocation error:", err.message);
+      }
+    );
   }, []);
 
+  // Dropzone for image upload
   const { getRootProps, getInputProps } = useDropzone({
     accept: { "image/*": [] },
     multiple: true,
     onDrop: (acceptedFiles) => {
       const newImages = [...formData.images, ...acceptedFiles];
-      const previews = acceptedFiles.map((file) => ({
-        url: URL.createObjectURL(file),
-      }));
       setFormData((prev) => ({ ...prev, images: newImages }));
-      setPreviewImages((prev) => [...prev, ...previews]);
+
+      const newPreviews = acceptedFiles.map((file) => ({
+        url: URL.createObjectURL(file),
+        name: file.name,
+      }));
+      setPreviewImages((prev) => [...prev, ...newPreviews]);
     },
   });
 
   const handleInputChange = (e) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const removeImage = (index) => {
-    const updatedImages = formData.images.filter((_, i) => i !== index);
-    const updatedPreviews = previewImages.filter((_, i) => i !== index);
+    const updatedImages = [...formData.images];
+    const updatedPreviews = [...previewImages];
+    updatedImages.splice(index, 1);
+    updatedPreviews.splice(index, 1);
     setFormData((prev) => ({ ...prev, images: updatedImages }));
     setPreviewImages(updatedPreviews);
   };
 
   const validateForm = () => {
+    const newErrors = {};
     const requiredFields = [
       "title",
       "description",
@@ -83,7 +84,6 @@ export default function AttractionForm() {
       "entryFee",
       "phone",
     ];
-    const newErrors = {};
     requiredFields.forEach((field) => {
       if (!formData[field]) newErrors[field] = "This field is required";
     });
@@ -94,10 +94,6 @@ export default function AttractionForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
-    if (!token) {
-      alert("Authorization token is missing.");
-      return;
-    }
 
     const body = new FormData();
     Object.entries(formData).forEach(([key, value]) => {
@@ -110,19 +106,16 @@ export default function AttractionForm() {
 
     setLoading(true);
     try {
-      const res = await fetch(
-        "https://kenya-explorers.onrender.com/api/attractions",
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          body,
-        }
-      );
-
+      const res = await fetch("https://kenya-explorers.onrender.com/api/attractions", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          // "Content-Type": "application/json",
+        },
+        body,
+      });
+      console.log('submition failed')
       if (!res.ok) throw new Error("Submission failed");
-
       setSuccessMsg("Attraction submitted successfully!");
       setFormData({
         title: "",
@@ -196,8 +189,17 @@ export default function AttractionForm() {
             className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
           >
             <option value="">-- Select Category --</option>
-            {["game park", "beach", "mountain", "lake", "museum", "cultural site"].map((cat) => (
-              <option key={cat} value={cat}>{cat}</option>
+            {[
+              "game park",
+              "beach",
+              "mountain",
+              "lake",
+              "museum",
+              "cultural site",
+            ].map((cat) => (
+              <option key={cat} value={cat}>
+                {cat}
+              </option>
             ))}
           </select>
           {errors.category && (
@@ -235,7 +237,9 @@ export default function AttractionForm() {
           >
             <option value="">-- Select County --</option>
             {counties.map((county) => (
-              <option key={county} value={county}>{county}</option>
+              <option key={county} value={county}>
+                {county}
+              </option>
             ))}
           </select>
           {errors.region && (
@@ -291,7 +295,7 @@ export default function AttractionForm() {
           )}
         </div>
 
-        {/* Images */}
+        {/* Image Upload */}
         <div>
           <label className="font-semibold mb-2 flex items-center gap-2 text-gray-700">
             <FiImage className="text-2xl text-primary" /> Images
@@ -306,8 +310,10 @@ export default function AttractionForm() {
               click to browse
             </p>
           </div>
+        </div>
 
-          {/* Preview Images */}
+        {/* Preview Images */}
+        {previewImages.length > 0 && (
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
             {previewImages.map((img, idx) => (
               <div key={idx} className="relative group">
@@ -326,10 +332,10 @@ export default function AttractionForm() {
               </div>
             ))}
           </div>
-        </div>
+        )}
 
         {/* Submit */}
-        <div>
+        <div className="mt-6">
           <button
             type="submit"
             disabled={loading}
