@@ -16,18 +16,25 @@ export default function Navbar() {
 
   useEffect(() => {
     const menuElement = scrollStop.current;
-
     if (isOpen && menuElement) {
       disableBodyScroll(menuElement);
     } else if (menuElement) {
       enableBodyScroll(menuElement);
     }
 
-    // Clean up scroll locks when component unmounts
-    return () => {
-      clearAllBodyScrollLocks();
-    };
+    return () => clearAllBodyScrollLocks();
   }, [isOpen]);
+
+  const closeMenu = () => setIsOpen(false);
+
+  const navLinks = [
+    { to: "/", label: "Home" },
+    { to: "/about", label: "About" },
+    { to: "/services", label: "Services" },
+    { to: "/admindashboard", label: "AdminDashboard" },
+    { to: "/attractions", label: "Attractions" },
+    { to: "/contact", label: "Contact" },
+  ];
 
   return (
     <nav
@@ -37,7 +44,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 md:py-4">
         {/* Logo Section */}
         <div className="text-xl font-bold text-primary-500">
-          <Link to={"/"}>Kenya Explorers🦒</Link>
+          <Link to="/">Kenya Explorers🦒</Link>
         </div>
 
         {/* Hamburger Menu for Mobile */}
@@ -47,30 +54,21 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Links and Search Section */}
+        {/* Navigation Links */}
         <div
           className={`flex-col md:flex md:flex-row md:items-center md:space-x-6 md:static absolute left-0 top-full w-full md:w-auto px-4 md:px-0 transition-all duration-300 ease-in-out ${
-            isOpen
-              ? "flex bg-neutral-100 pb-4 rounded-b-2xl"
-              : "hidden bg-transparent"
+            isOpen ? "flex bg-neutral-100 pb-4 rounded-b-2xl" : "hidden bg-transparent"
           }`}
         >
           <ul className="flex flex-col text-secondary md:flex-row md:space-x-6 space-y-2 md:space-y-0 mt-4 md:mt-0">
-            {[
-              { to: "/", label: "Home" },
-              { to: "/about", label: "About" },
-              { to: "/services", label: "Services" },
-              { to: "/admindashboard", label: "AdminDashboard" },
-              { to: "/attractions", label: "Attractions" },
-              { to: "/contact", label: "Contact" },
-            ].map(({ to, label }) => (
+            {navLinks.map(({ to, label }) => (
               <li key={to}>
                 <Link
                   to={to}
                   className={`hover:text-primary ${
                     isActive(to) ? "text-primary-500" : ""
                   }`}
-                  onClick={() => setIsOpen(false)}
+                  onClick={closeMenu}
                 >
                   {label}
                 </Link>
@@ -89,38 +87,34 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Login / Register Section */}
+        {/* Desktop Auth Buttons */}
         <div className="hidden md:flex items-center space-x-4">
-          <button className="flex items-center cursor-pointer gap-2 text-secondary text-sm hover:text-primary">
+          <button className="flex items-center gap-2 text-secondary text-sm hover:text-primary">
             <FaUserCircle size={20} className="text-secondary" />
-            <Link
-              to={"/login"}
-              className={isActive("/login") ? "text-primary-500" : ""}
-            >
+            <Link to="/login" className={isActive("/login") ? "text-primary-500" : ""}>
               Login
             </Link>
           </button>
           <button className="bg-primary cursor-pointer text-white px-4 py-1.5 rounded-md text-sm hover:bg-secondary-900-brand">
-            <Link to={"/signup"}>Sign Up</Link>
+            <Link to="/signup">Sign Up</Link>
           </button>
         </div>
       </div>
 
-      {/* Mobile Login/Register Section */}
+      {/* Mobile Auth Buttons */}
       {isOpen && (
         <div className="md:hidden px-4 pb-4">
-          <button className="flex items-center gap-2 text-sm hover:text-primary w-full mb-2">
+          <button
+            className="flex items-center gap-2 text-sm hover:text-primary w-full mb-2"
+            onClick={closeMenu}
+          >
             <FaUserCircle size={20} />
-            <Link
-              to={"/login"}
-              className={isActive("/login") ? "text-primary-500" : ""}
-              onClick={() => setIsOpen(false)}
-            >
+            <Link to="/login" className={isActive("/login") ? "text-primary-500" : ""}>
               Login
             </Link>
           </button>
           <button className="bg-primary-500 text-white px-4 py-2 rounded-md text-sm hover:bg-primary-500/50">
-            <Link to={"/signup"} onClick={() => setIsOpen(false)}>
+            <Link to="/signup" onClick={closeMenu}>
               Sign Up
             </Link>
           </button>
